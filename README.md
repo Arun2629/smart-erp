@@ -1,7 +1,7 @@
 # SMART-ERP
 Single Page application for posting posts as markdown and viewing all the posts build using REACT.
 ***
-## Tech-Stack-(MERN)
+## Tech-Stack
 * Javascript | ES6
 * Reactjs
 * **Packages** : 
