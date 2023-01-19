@@ -1,13 +1,119 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 4vh;
+  margin-left: 43%;
+  margin-right: 43%;
+  margin-top: 2%;
+  border: 3px solid black;
+  border-color: brown;
+  border-radius: 10px;
+}
+
+.search span {
+  padding-left: 6%;
+}
+
+.search input {
+  border: 0;
+  border-width: 0;
+  border-style: none;
+  padding-left: 0.5em;
+  outline: none;
+}
+
+.button-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 5vh;
+  margin-top: 2%;
+}
+
+.button-nav button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button-nav button:hover {background-color: #3e8e41}
+
+.button-nav button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.form-container {
+  position: relative;
+  margin-top: 5%;
+  left: 10%;
+  width: 80%;
+}
+
+.form-container h2 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: oblique;
+}
+
+.form-item1 {
+  width: 30%;
+  height: 3vh;
+}
+
+.form-btn {
+  border-radius: 3px;
+  background-color: blue;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 100px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.form-btn:hover {background-color: #3e8e41}
+
+.publish-container {
+  position: relative;
+  left: 2.5%;
+  margin-top: 3%;
+  width: 95%;
+  height: 68vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.publish-single {
+  margin-top: 2%;
+  border: 3px solid rgb(161, 20, 217);
+  padding: 1%;
+}
+
+.publish-h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 400;
+  color: darkblue;
 }

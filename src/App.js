@@ -1,25 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useReducer} from 'react'
+import { Route } from 'react-router-dom'
+import Search from './components/pages/search'
+import ButtonNav from './components/pages/ButtonNav'
+import Form from './components/pages/Form'
+import Publish from './components/pages/Publish'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+ const initialState = {
+  posts: [],
+  search: ''
+ }
+ const reducer = (state, action) => {
+    switch (action.type) {
+        case 'SET_POSTS': {
+            return {...state, posts: [...state.posts, action.payload]}
+        }
+        case "SET_SEARCH": {
+              return {...state, search: action.payload}
+          }
+            
+          default: {
+              return state;
+          }
+        }
 }
 
-export default App;
+
+const App = (porps) => {
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+  const setPosts = (formData) => {
+    dispatch({type: 'SET_POSTS', payload: formData})
+  }
+
+  const setSearch = (value) => {
+    dispatch({type: 'SET_SEARCH', payload: value})
+  }
+
+  const searchedPosts = state.posts.filter((post) => {
+    return post.title.toLowerCase().includes(state.search.toLowerCase()) || post.body.toLowerCase().includes(state.search.toLowerCase())
+  })
+ 
+  return (
+    <div>
+      <Search setSearch={setSearch} search={state.search}/>
+      <ButtonNav/>
+      <Route path='/add-posts' render={(props) => {
+        return <Form {...props}
+                      setPosts={setPosts}/>
+      }}      />
+      <Route path='/published' render={(props) => {
+        return  <Publish {...props}
+                  posts={searchedPosts}/>
+      }}/>
+    </div>
+  )
+}
+
+export default App
